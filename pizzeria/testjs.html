@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Javascript</title>
+    </head>
+    <body>
+      <script type="text/javascript">
+  /**   console.log("Objet : ", { nom : "DOE", prenom : "John"});
+      console.log("Tableau : ", new Array("val1", "val2"));
+      console.log("Variable : ", "val 1");
+      function test(){
+          alert("ok");
+      }
+      console.log("Fonction : ", test());
+     **/
+var j=1;
+
+  document.write('<table border="1">');
+  for(var i = 0; i < 4; i++){
+      var col=0;
+     document.write('<tr>');
+        console.log('i : '+i);
+      for(var x= j; x<13; x++){
+           console.log('col : '+ col);
+          if(col < 3){
+          document.write('<td>'+x+'</td>'); 
+          }else{
+              break;
+          }
+           console.log('x : '+ x);
+           col++;
+           j++;
+      }
+           document.write('</tr>');
+   
+
+  }
+ document.write('</table>');
+
+
+
+
+function returnAge(){
+var ageArray = { 
+    "anatole" : 19,
+    "bernard" : 45,
+    "christophe" : 34,
+    "dominique" : 55,
+    "franck" : 28,
+    "georges" : 78,
+    "lucas" : 12,
+    "madeleine" : 30,
+    "pierre" : 25
+};
+
+    var nom = document.getElementById("nom").value;
+    console.log("nom : "+nom);
+    var age = ageArray[nom];
+     console.log("age : "+age);
+    alert( nom.charAt(0).toUpperCase()+nom.substring(1).toLowerCase()+" a "+ age+" ans");
+
+}
+
+function moyenne(tab){
+var somme = 0;
+   for(var i = 0; i<tab.length; i++){
+       somme += tab[i];
+   }
+    console.log("index tab "+tab.length);  
+   var moyenne = (somme / tab.length).toFixed(2);
+   document.write(moyenne);
+   console.log(moyenne);  
+   
+}
+ var notes = [15, 12, 18, 14, 16, 16, 19, 13, 11, 10, 16, 15];
+ moyenne(notes);
+//alert("moyenne : "+ moyenne(notes));
+
+function divColor(c){
+    document.getElementById("divcolor").style.backgroundColor = c;
+}
+
+      </script>
+
+      <input type="text" name="nom" id="nom" />
+<input type="button" name="btn" value="Quel âge as-tu ?" onclick="returnAge()"/><br/><br/>
+<input type="button" name="btn" value="rouge" onclick="divColor('red')"/>
+<input type="button" name="btn" value="bleu" onclick="divColor('blue')"/><br/><br/>
+<div id="divcolor" style="width:100px; height:100px; border-style: solid; border-width: 1px;"></div><br/><br/>
+
+<form name="calculatrice" action="" onSubmit="resultat();return false;">
+	<table border="1" cellpadding="5" cellspacing="0">
+		<tr>
+			<td><input type="text" name="affiche" align="right"></td>
+		</tr>
+		<tr>
+			<td>
+				<table border="0" cellpadding="0" cellspacing="2">
+					<tr>
+						<td><input type="button" width="50" class="button" value="  7   "></td>
+						<td><input type="button" width="50" class="button" value="  8   "></td>
+						<td><input type="button" width="50" class="button" value="  9   "></td>
+						<td><input type="button" width="50" class="button" value="  +   "></td>
+					</tr>
+					<tr>
+						<td><input type="button" width="50" class="button" value="  4   "></td>
+						<td><input type="button" width="50" class="button" value="  5   "></td>
+						<td><input type="button" width="50" class="button" value="  6   "></td>
+						<td><input type="button" width="50" class="button" value="  -   "></td>
+					</tr>
+					<tr>
+						<td><input type="button" width="50" class="button" value="  1   "></td>
+						<td><input type="button" width="50" class="button" value="  2   "></td>
+						<td><input type="button" width="50" class="button" value="  3   "></td>
+						<td><input type="button" width="50" class="button" value="  *   "></td>
+					</tr>
+					<tr>
+						<td><input type="button" width="50" class="button" value="  0   "></td>
+						<td><input type="button" width="50" class="button" value="  .   "></td>
+						<td><input type="reset"  width="50" class="button" value="  C  "></td>
+						<td><input type="button" width="50" class="button" value="  /   "></td>
+					</tr>
+					<tr>
+						<td colspan=3></td>
+						<td><input type="button" width="50" class="button" value="  =   "></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>
+
+    </body>
+</html>

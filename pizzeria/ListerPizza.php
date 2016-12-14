@@ -12,7 +12,7 @@
         <nav>
             <ul>
                 <li><a href="Accueil.html">Retour à l'accueil</a></li>
-                <li><a href="AjouterPizza.html">Ajouter une pizza</a></li>
+                <li><a href="AjouterPizza.php">Ajouter une pizza</a></li>
             </ul>
         </nav>        
         <section>
@@ -45,15 +45,13 @@
 ?>
 
                 <tr>
-                                <td align="left"> <?php echo $donnees["id"]; ?></td>
+                    <td align="left"> <?php echo $donnees["id"]; ?></td>
                     <td align="left"> <?php echo $donnees["libelle"]; ?></td>
                     <td align="left"> <?php echo $donnees["reference"]; ?></td>
-                      <td align="left"> <?php echo $donnees["prix"]; ?></td>
+                    <td align="left"> <?php echo $donnees["prix"]; ?> €</td>
                     <td align="left"> <?php echo $donnees["categ_pizza"]; ?></td>
-                   <td><a href="">modifier</a> <a href="">supprimer</a></td>
-                    </tr>
-                 
-             
+                    <td><a href="">modifier</a> <a href="">supprimer</a></td>
+                   </tr>
 
 
 <?php

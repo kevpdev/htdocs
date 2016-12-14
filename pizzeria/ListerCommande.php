@@ -2,17 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>La pizzéria "La Florentina" - liste des clients</title>
+        <title>La pizzéria "La Florentina" - liste des commandes</title>
     </head>
     <body>
         <header>
             <h1>La Florentina</h1>
-            <h2>Liste des clients</h2>
+            <h2>Liste des commandes</h2>
         </header>        
         <nav>
             <ul>
                 <li><a href="Accueil.html">Retour à l'accueil</a></li>
-                <li><a href="AjouterClient.php">Ajouter un client</a></li>
+                <li><a href="AjouterCommande.php">Ajouter une commandes</a></li>
             </ul>
         </nav>        
         <section>
@@ -22,13 +22,12 @@
             <article>
                  <table width=100%>
                 <tr>
-                    <th align="left">Id</th>
-                    <th align="left">NOM</th>
-                    <th align="left">Prénom</th>
-                      <th align="left">Email</th>
-                    <th align="left">Adresse</th>
-                    <th align="left">Ville</th>
-                   <th align="left">Code Postal</th>
+                   <th align="left">Id.</th>
+                              <th align="left">N° commande</th>
+                              <th align="left">Date de commande</th>
+                              <th align="left">Statut</th>
+                              <th align="left">Client</th>
+                                 <th align="left">Livreur</th>
                     
                     </tr>
 
@@ -37,7 +36,7 @@
 
     $cnx = mysql_connect( "localhost:3306", "root", "" ) or die(mysql_error());
     $db  = mysql_select_db( "pizzeria2" );
-    $sql = mysql_real_escape_string("SELECT * FROM client");
+    $sql = mysql_real_escape_string("SELECT cde.`id`, cde.`date_commande`, cde.`num_commande`, cde.`statut`, c.nom as nomcli, c.prenom as prenomcli, l.nom as nomli, l.prenom AS prenomli FROM `commande` cde INNER JOIN client c ON cde.client_id = c.id INNER JOIN livreur l ON cde.livreur_id = l.id ");
     mysql_query("SET NAMES 'utf8'");
     $reponse = mysql_query($sql, $cnx) or die( mysql_error() );
 
@@ -48,12 +47,11 @@
 
                 <tr>
                                 <td align="left"> <?php echo $donnees["id"]; ?></td>
-                    <td align="left"> <?php echo $donnees["nom"]; ?></td>
-                    <td align="left"> <?php echo $donnees["prenom"]; ?></td>
-                      <td align="left"> <?php echo $donnees["email"]; ?></td>
-                    <td align="left"> <?php echo $donnees["adresse"]; ?></td>
-                    <td align="left"> <?php echo $donnees["ville"]; ?></td>
-                   <td align="left"> <?php echo $donnees["code_postal"]; ?></td>
+                    <td align="left"> <?php echo $donnees["num_commande"]; ?></td>
+                    <td align="left"> <?php echo $donnees["date_commande"]; ?></td>
+                      <td align="left"> <?php echo $donnees["statut"]; ?></td>
+                    <td align="left"> <?php echo ($donnees["nomcli"].' '.$donnees["prenomcli"]);?></td>
+                     <td align="left"> <?php echo ($donnees["nomli"].' '.$donnees["prenomli"]);?></td>
                    <td><a href="">modifier</a> <a href="">supprimer</a></td>
                     </tr>
                  

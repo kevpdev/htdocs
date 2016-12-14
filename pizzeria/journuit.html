@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#btnMontrer").hide();
+                $("#btnCacher").click(function() {
+                    $("li#un + li").hide();
+                    $("#btnCacher").hide();
+                    $("#btnMontrer").show();
+                });
+                $("#btnMontrer").click(function() {
+                    $("li#un + li").show();
+                    $("#btnCacher").show();
+                    $("#btnMontrer").hide();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li id="un">Tu</li>
+            <li id="deux">me</li>
+            <li id="trois">vois ?</li>
+        </ul>
+        <button id="btnCacher">Nuit !</button>
+        <button id="btnMontrer">Jour !</button>
+    </body>
+</html>

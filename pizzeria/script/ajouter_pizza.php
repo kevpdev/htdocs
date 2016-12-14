@@ -3,7 +3,7 @@
   $cnx = mysql_connect( "localhost", "root", "" ) ;
  
   // Sélection de la base de données:
-  $db  = mysql_select_db( "pizzeria" ) ;
+  $db  = mysql_select_db( "pizzeria2" ) ;
  
   // Récupération des valeurs des champs
   $libelle = $_POST["libelle"];
@@ -26,8 +26,8 @@
   }
   else
   {
-    echo("L'insertion à échouée") ;
+    echo("L'insertion à échouée");
   }
 ?>
 <br />
-<a href="javascript:window.history.back();">Retour</a>
+<a href="../ListerPizza.php">Retour</a>

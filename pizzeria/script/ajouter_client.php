@@ -1,9 +1,9 @@
 <?php
   // Connection au serveur
-  $cnx = mysqli_connect( "localhost:3306", "root", "" ) ;
+  $cnx = mysql_connect( "localhost:3306", "root", "" ) ;
  
   // Sélection de la base de données:
-  $db  = mysqli_select_db( "pizzeria2" ) ;
+  $db  = mysql_select_db( "pizzeria2" ) ;
  
   // Récupération des valeurs des champs
   $nom     = strtoupper($_POST["nom"]);
@@ -21,8 +21,8 @@
             VALUES ('$nom', '$prenom', '$ville', '$adresse', '$email', '$codePostal') " ;
  
   	// Exécution de la requête SQL
-  	mysqli_query("SET NAMES 'utf8'");
-  	$requete = mysqli_query($sql, $cnx) or die( mysql_error() ) ;
+  	mysql_query("SET NAMES 'utf8'");
+  	$requete = mysql_query($sql, $cnx) or die( mysql_error() ) ;
     echo("L'insertion a été correctement effectuée") ;
   }
   else
@@ -31,4 +31,5 @@
   }
 ?>
 <br />
-<a href="javascript:window.history.back();">Retour</a>
+<!--<a href="javascript:window.history.back();">Retour</a>-->
+<a href="../ListerClient.php">Retour</a>
