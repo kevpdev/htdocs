@@ -1,9 +1,6 @@
 <?php
   // Connection au serveur
-  $cnx = mysql_connect( "localhost:3306", "root", "" ) ;
- 
-  // Sélection de la base de données:
-  $db  = mysql_select_db( "pizzeria2" ) ;
+ $cnx =  new PDO('mysql:host=localhost;dbname=pizzeria2',"root", "");
  
   // Récupération des valeurs des champs
   $nom     = strtoupper($_POST["nom"]);
@@ -16,19 +13,26 @@
   // Affichage des résultats
   if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['ville']) && !empty($_POST['email']))
   { 
-  	// Création de la requête SQL:
-  	$sql = "INSERT  INTO client (nom, prenom, ville, adresse, email, code_postal)
-            VALUES ('$nom', '$prenom', '$ville', '$adresse', '$email', '$codePostal') " ;
  
   	// Exécution de la requête SQL
-  	mysql_query("SET NAMES 'utf8'");
-  	$requete = mysql_query($sql, $cnx) or die( mysql_error() ) ;
+ $stmt = $cnx->prepare("INSERT INTO client (nom, prenom, ville, adresse, email, code_postal)
+            VALUES (?, ?, ?, ?, ?, ?) ");
+            $stmt->bindParam(1, $nom);
+            $stmt->bindParam(2, $prenom);
+            $stmt->bindParam(3, $ville);
+            $stmt->bindParam(4, $adresse);
+            $stmt->bindParam(5, $email);
+            $stmt->bindParam(6, $codePostal);
+if($stmt->execute()){
+
     echo("L'insertion a été correctement effectuée") ;
   }
   else
   {
-    echo("L'insertion à échouée") ;
+    echo("L'insertion à échouée");
   }
+  }
+  
 ?>
 <br />
 <!--<a href="javascript:window.history.back();">Retour</a>-->

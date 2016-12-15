@@ -1,9 +1,7 @@
 <?php
   // Connection au serveur
-  $cnx = mysql_connect( "localhost", "root", "" ) ;
- 
-  // Sélection de la base de données:
-  $db  = mysql_select_db( "pizzeria2" ) ;
+ $cnx =  new PDO('mysql:host=localhost;dbname=pizzeria2',"root", "");
+
  
   // Récupération des valeurs des champs
   $libelle = $_POST["libelle"];
@@ -16,17 +14,24 @@
   if(!empty($_POST['libelle']) && !empty($_POST['reference']) && !empty($_POST['prix']) && !empty($_FILES['url_image']) && !empty($_POST['categ_pizza']))
   { 
   	// Création de la requête SQL:
-  	$sql = "INSERT INTO pizza (libelle, reference, prix, url_image, categ_pizza)
+  /*	$sql = "INSERT INTO pizza (libelle, reference, prix, url_image, categ_pizza)
             VALUES ('$libelle', '$reference', '$prix', '$url_image', '$categ_pizza') " ;
- 
-  	// Exécution de la requête SQL:
-  	mysql_query("SET NAMES 'utf8'");
-  	$requete = mysql_query($sql, $cnx) or die( mysql_error() ) ;
+ */
+ $stmt = $cnx->prepare("INSERT INTO pizza (libelle, reference, prix, url_image, categ_pizza)
+            VALUES (?, ?, ?, ?, ?) ");
+            $stmt->bindParam(1, $libelle);
+            $stmt->bindParam(2, $reference);
+            $stmt->bindParam(3, $prix);
+            $stmt->bindParam(4, $url_image);
+            $stmt->bindParam(5, $categ_pizza);
+if($stmt->execute()){
+
     echo("L'insertion a été correctement effectuée") ;
   }
   else
   {
     echo("L'insertion à échouée");
+  }
   }
 ?>
 <br />

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+         <link rel="stylesheet" href="css/style.css" />
         <title>La pizzéria "La Florentina" - Ajout d'une commande</title>
     </head>
     <body>
@@ -10,7 +11,7 @@
             <h2>Création d'une commande</h2>
         </header>        
         <nav>
-            <ul>
+            <ul id="navigation">
                 <li><a href="Accueil.html">Retour à l'accueil</a></li>
             </ul>
         </nav>        
@@ -68,7 +69,7 @@
         </section>        
         <footer>
             <p>Copyright La Florentina - Tous droits réservés<br /><br />
-            <a href="#">Nous contacter</a></p>
+            <a href="#" id="contact">Nous contacter</a></p>
         </footer>        
     </body>
 </html>

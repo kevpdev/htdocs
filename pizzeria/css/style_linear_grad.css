@@ -1,0 +1,24 @@
+#lineargrad{
+    background-image: linear-gradient(blue, red);
+    height: 20em;
+    text-align: center;
+    color: #fff;
+}
+#lineargrad2{
+    background-image: linear-gradient(90deg, red, green);
+    height: 20em;
+        text-align: center;
+    color: #fff;
+}
+#lineargrad3{
+    background-image: linear-gradient(180deg, red, yellow);
+    height: 20em;
+        text-align: center;
+    color: #fff;
+}
+#lineargrad4{
+    background-image: linear-gradient(-90deg,  red, yellow);
+    height: 20em;
+        text-align: center;
+    color: #fff;
+}

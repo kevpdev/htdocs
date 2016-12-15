@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+#monDiv:hover {
+    width: 1000px;
+    height: 1000px;
+    
+}
+    
+#monDiv {
+    position: absolute;
+    left: 100px; 
+    top: 100px; 
+    width: 100px;
+    height: 100px;
+    background: green;
+    animation: monMouvement 5s infinite;
+    -webkit-animation: monMouvement 5s infinite;
+}
+
+/* Pour Google Chrome, Safari et Opera */
+@-webkit-keyframes monMouvement {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+    }
+     50% {  
+      background: #0000FF;
+      transform: rotate(-180deg); 
+       width: 1000px;
+    }
+     100% {
+    opacity: 1;
+    transform: rotate(180deg);
+     background: #000;
+       width: 600px;
+    height: 600px;
+    }
+}
+
+/* Syntaxe standard */
+@keyframes monMouvement {
+    0% {
+    opacity: 1;
+    transform: rotate(0deg);
+    }
+     50% {  
+      background: yellow;
+    }
+     100% {
+    opacity: 1;
+    transform: rotate(180deg);
+     background: red;
+       width: 600px;
+    height: 600px;
+    }
+}
+    
+</style>
+</head>
+<body>
+
+<div id="monDiv"></div>
+
+</body>
+</html>

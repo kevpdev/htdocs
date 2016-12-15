@@ -1,0 +1,36 @@
+body {
+    background-color: #000099;
+    font-family: "Arial", sans-serif;
+
+}
+
+h1{
+ color: #fff;
+text-align: center;
+}
+
+.button{
+
+      background-color: #fff;
+       border-radius: 3px;
+    
+}
+
+li{
+    font-family: "Arial", sans-serif;
+    margin-top: 10px; 
+    background-color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 0.5em 0  0 0;
+    text-align: center;
+    height: 30px;
+    width: 30%;
+    margin:0px auto 0px auto;
+    list-style:none;
+
+}
+#list-selection{
+text-align: center;
+} 
+

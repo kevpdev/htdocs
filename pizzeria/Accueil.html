@@ -2,15 +2,37 @@
 <html>
     <head>
         <meta charset="utf-8" />
+                 <link rel="stylesheet" href="css/style.css" />
+                   <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
         <title>Bienvenue sur le site web de la pizzéria "La Florentina"</title>
+        
     </head>
     <body>
+        <script>
+  (function() {
+    var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+      $.getJSON( flickerAPI, {
+        tags: "pizza",
+        format: "json"
+      })
+      .done(function( data ) {
+        $.each( data.items, function( i, item ) {
+          $( "<img>" ).attr( "src", item.media.m ).appendTo("#images");
+          // À compléter
+            if ( i === 3 ) {
+          return false;
+        }
+        });
+      });
+  })();
+</script>
         <header>
             <h1>La Florentina</h1>
             <h2>Pizzéria</h2>
+            <div id="images"></div>
         </header>        
         <nav>
-            <ul>
+            <ul id="navigation">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="ListerClient.php">Clients</a></li>
                 <li><a href="ListerCommande.php">Commandes</a></li>
@@ -43,7 +65,7 @@
         </section>        
         <footer>
             <p>Copyright La Florentina - Tous droits réservés<br /><br />
-            <a href="#">Nous contacter</a></p>
+            <a href="#" id="contact">Nous contacter</a></p>
         </footer>        
     </body>
 </html>

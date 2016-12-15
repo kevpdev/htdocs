@@ -1,9 +1,6 @@
 <?php
   // Connection au serveur
-  $cnx = mysql_connect( "localhost", "root", "" ) ;
- 
-  // Sélection de la base de données:
-  $db  = mysql_select_db( "pizzeria2" ) ;
+  $cnx =  new PDO('mysql:host=localhost;dbname=pizzeria2',"root", "");;
  
   // Récupération des valeurs des champs
   //$numero_commande = $_POST["numero_commande"];
@@ -19,16 +16,22 @@
   	// Création de la requête SQL:
   	$sql = "INSERT  INTO commande (num_commande, date_commande, livreur_id, client_id)
             VALUES ('$numero_commande', '$date_commande', '$livreur_id', '$client_id') " ;
- 
-  	// Exécution de la requête SQL:
-  	mysql_query("SET NAMES 'utf8'");
-  	$requete = mysql_query($sql, $cnx) or die( mysql_error() ) ;
+  	// Exécution de la requête SQL
+ $stmt = $cnx->prepare("INSERT INTO commande (num_commande, date_commande, livreur_id, client_id)
+            VALUES (?, ?, ?, ?) ");
+            $stmt->bindParam(1, $numero_commande);
+            $stmt->bindParam(2, $date_commande);
+            $stmt->bindParam(3, $livreur_id);
+            $stmt->bindParam(4, $client_id);
+if($stmt->execute()){
+
     echo("L'insertion a été correctement effectuée") ;
   }
   else
   {
-    echo("L'insertion à échouée") ;
+    echo("L'insertion à échouée");
+  }
   }
 ?>
-<br />
+<br/>
 <a href="../ListerCommande.php">Retour</a>
