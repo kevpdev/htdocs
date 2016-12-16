@@ -1,0 +1,68 @@
+body {
+    font-family: "Helvetica";
+    background-color: #EFECCA;
+}
+h1 {
+    color: #C03000;
+}
+h2 {
+    color: #4BB5C1;
+}
+a {
+    color: #96CA2D;
+    text-decoration: none;
+}
+
+#navigation li {
+display: inline-flex;
+
+background-color: #C03000;
+
+ 
+}
+#navigation li a {
+ float: left;
+list-style:none;
+margin-right: 2px;
+width: 8em;
+padding : 5px 15px;
+text-align: center;
+border: 2px;
+border-color: #660000;
+ color: #fff;
+}
+
+#navigation li:hover{
+    background: #009900;
+}
+
+#contact {
+      color: #0000FF;
+      font-weight: bold;
+}
+.action{
+    background-color: #0000FF;
+    margin: 0 2px 1px 0;
+     text-decoration: none;
+     padding : 5px 15px;
+     color: #fff;
+     width: 8em;
+
+}
+
+input{
+    width: 200px;
+    border-radius: 5px;
+    padding : 3px 10px;
+    margin: 0 0 1em 10em;
+}
+
+input[type="submit"]{
+    background-color:#C03000; 
+     color: #fff;
+
+}
+tr{
+    margin: 0 0 50px 0;
+}
+
